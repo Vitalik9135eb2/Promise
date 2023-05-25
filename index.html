@@ -38,19 +38,48 @@
     //
     // })
 
+    // Промисификация
+    //
+    // const doAfter = (time) => {
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             resolve(time)
+    //         }, time*1000)
+    //     })
+    // }
+    //
+    // doAfter(5).then(() => console.log('я сработал через 5 секунд'));
+    // doAfter(10).then(() => console.log('я сработал через 10 секунд'));
+    // doAfter(3).then(() => console.log('а я сработал через 3 секунд'));
+
+
+    //  const doAfter = (time) => {
+    //      return new Promise((resolve, reject) => {
+    //          setTimeout(() => {
+    //              resolve(time)
+    //          }, time * 1000)
+    //      })
+    //  }
+    //
+    // let promise3 = doAfter(3);
+    // promise3.then( () => console.log('я сработал через 3 секунд') );
+    // promise3.then( () => console.log('и я тоже следом сработал через 3 секунд') );
+    // promise3.then( () => console.log('и я') )
+
+
+
     const doAfter = (time) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                resolve(time)
-            }, time*1000)
+                reject(time)
+            }, time * 1000)
         })
     }
 
-    doAfter(5).then(() => console.log('я сработал через 5 секунд'));
-    doAfter(10).then(() => console.log('я сработал через 10 секунд'));
-    doAfter(3).then(() => console.log('а я сработал через 3 секунд'));
-
-
+    let promise3 = doAfter(3);
+    promise3.then( () => console.log('я сработал через 3 секунд') );
+    promise3.catch( () => console.log('и я тоже следом сработал через 3 секунд') );
+    promise3.then( () => console.log('и я') )
 
 </script>
 </body>
